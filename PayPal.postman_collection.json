@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "5c5b6697-0ec4-4107-8476-8f65613a1d91",
+		"name": "PayPal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a new product with hard coded value in the body Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8fa7cb09-ae3f-4534-ae89-bc5c675d2947",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Global set of productID\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.globals.set(\"proid\", jsonData.id);\r",
+							"  \r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "PayPal-Request-Id",
+						"value": "APP-80W284485P519543T",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Video Streaming Service\",\r\n  \"description\": \"Video streaming service\",\r\n  \"type\": \"SERVICE\",\r\n  \"category\": \"SOFTWARE\",\r\n  \"image_url\": \"https://example.com/streaming.jpg\",\r\n  \"home_url\": \"https://example.com/home\"\r\n  \r\n}"
+				},
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/catalogs/products",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"catalogs",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a new product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "de090376-bc58-40f8-a77b-d79270da58bd",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify category contains\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.category).to.eql(\"SOFTWARE\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify type expected\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.type).to.eql(\"SERVICE\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/catalogs/products/{{proid}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"catalogs",
+						"products",
+						"{{proid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "A21AAKYHxKSltP-2-ouesZjNDGbBR-C7pSTZ5042HTWrshrqUNj1N0LRIV2fZQOmQiT2U6MZjoLbHlASzlRN4-9K0uQOCKnFg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3827a140-3ba7-44f4-9d23-b53bb28c3468",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3fe488fe-90c6-42dd-bd65-eaab951dc203",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

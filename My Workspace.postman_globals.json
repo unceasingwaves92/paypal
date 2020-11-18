@@ -1,0 +1,94 @@
+{
+	"id": "66d33df9-a36c-4433-83ae-c3f88b1cf6bf",
+	"values": [
+		{
+			"key": "url",
+			"value": "https://api.paystack.co",
+			"enabled": true
+		},
+		{
+			"key": "ename",
+			"value": "Promocode{{$randomInt}}",
+			"enabled": false
+		},
+		{
+			"key": "eid",
+			"value": 71,
+			"enabled": false
+		},
+		{
+			"key": "url1",
+			"value": "https://api.spotify.com/v1",
+			"enabled": false
+		},
+		{
+			"key": "sys_id",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "ID",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "id",
+			"value": "",
+			"enabled": false
+		},
+		{
+			"key": "eid",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "code",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "email",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "emailcode",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "subcode",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "pro_id",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "childpro_id",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "userifyurl",
+			"value": "https://api.userify.com",
+			"enabled": true
+		},
+		{
+			"key": "com_id",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "proid",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"name": "My Workspace Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2020-11-18T14:30:28.708Z",
+	"_postman_exported_using": "Postman/7.35.0"
+}
